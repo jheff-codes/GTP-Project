@@ -1,0 +1,1 @@
+# DisparadorMensagens Python package

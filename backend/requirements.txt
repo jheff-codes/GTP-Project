@@ -1,0 +1,23 @@
+# GTP Smart IA - Backend Python Dependencies
+
+# Supabase Client
+supabase==2.0.0
+
+# Scheduler
+APScheduler==3.10.4
+
+# Environment Variables
+python-dotenv==1.0.0
+
+# Database Drivers
+psycopg2-binary==2.9.9
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2024.1
+
+# Optional: For better JSON handling
+orjson==3.9.10
+
+# Optional: For better logging
+colorlog==6.7.0
