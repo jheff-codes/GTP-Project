@@ -1,0 +1,1 @@
+# GestaoEstagnados Python package

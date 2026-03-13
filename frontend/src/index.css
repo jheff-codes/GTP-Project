@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GTP Design System - Soft & Bold */
+
+@layer base {
+  :root {
+    /* Brand - Emerald */
+    --brand: 160 84% 39%;
+    --brand-hover: 161 94% 30%;
+    --brand-soft: 152 81% 96%;
+    --brand-foreground: 0 0% 100%;
+
+    /* Surfaces - Light Mode */
+    --background: 210 40% 98%;
+    --foreground: 215 25% 27%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    /* Primary = Brand */
+    --primary: 160 84% 39%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Slate */
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 215 25% 27%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 152 81% 96%;
+    --accent-foreground: 160 84% 39%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 160 84% 39%;
+
+    --radius: 1rem;
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 25% 27%;
+    --sidebar-primary: 160 84% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 152 81% 96%;
+    --sidebar-accent-foreground: 160 84% 39%;
+    --sidebar-border: 214 32% 91%;
+    --sidebar-ring: 160 84% 39%;
+
+    /* Chart Colors */
+    --chart-1: 160 84% 39%;
+    --chart-2: 217 91% 60%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 0 84% 60%;
+  }
+
+  .dark {
+    /* Brand - Emerald (slightly brighter for dark mode) */
+    --brand: 160 84% 45%;
+    --brand-hover: 160 84% 55%;
+    --brand-soft: 160 84% 10%;
+    --brand-foreground: 0 0% 0%;
+
+    /* Surfaces - Dark Mode (Near Black) */
+    --background: 220 15% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 15% 7%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 15% 7%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary = Brand */
+    --primary: 160 84% 45%;
+    --primary-foreground: 0 0% 0%;
+
+    /* Secondary - Slate Dark */
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 160 84% 15%;
+    --accent-foreground: 160 84% 45%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+
+    --success: 160 84% 45%;
+    --success-foreground: 0 0% 0%;
+
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 160 84% 45%;
+
+    /* Sidebar Dark */
+    --sidebar-background: 220 15% 4%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 160 84% 45%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 160 84% 15%;
+    --sidebar-accent-foreground: 160 84% 45%;
+    --sidebar-border: 217 33% 17%;
+    --sidebar-ring: 160 84% 45%;
+
+    /* Chart Colors Dark */
+    --chart-1: 160 84% 45%;
+    --chart-2: 217 91% 60%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 0 84% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+
+  /* GTP Micro Labels */
+  .micro-label {
+    @apply text-[10px] font-bold uppercase tracking-widest text-muted-foreground;
+  }
+
+  /* GTP Card Style */
+  .gtp-card {
+    @apply bg-card rounded-[2rem] border border-border p-6 shadow-sm hover:shadow-xl hover:border-primary/30 transition-all duration-300;
+  }
+
+  /* GTP Button Style */
+  .gtp-button {
+    @apply font-black uppercase tracking-widest text-xs py-3 px-6 rounded-xl shadow-lg active:scale-95 transition-all duration-300;
+  }
+
+  /* GTP Input Style */
+  .gtp-input {
+    @apply w-full p-4 rounded-xl border border-input bg-background focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-300;
+  }
+
+  /* Glassmorphism */
+  .glass {
+    @apply bg-white/10 dark:bg-slate-900/80 backdrop-blur-md;
+  }
+
+  /* Custom Scrollbar */
+  .custom-scroll::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scroll::-webkit-scrollbar-track {
+    @apply bg-muted rounded-full;
+  }
+
+  .custom-scroll::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/50;
+  }
+}
+
+@layer utilities {
+
+  /* Animate Blob (for decorative backgrounds) */
+  @keyframes blob {
+
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+      transform: translate(30px, -50px) scale(1.1);
+    }
+
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+  }
+
+  .animate-blob {
+    animation: blob 7s infinite ease-in-out;
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  /* Shake animation for errors */
+  @keyframes shake {
+
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+
+    25% {
+      transform: translateX(-5px);
+    }
+
+    75% {
+      transform: translateX(5px);
+    }
+  }
+
+  .animate-shake {
+    animation: shake 0.3s ease-in-out;
+  }
+}

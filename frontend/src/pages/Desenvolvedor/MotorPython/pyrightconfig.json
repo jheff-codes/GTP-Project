@@ -1,0 +1,10 @@
+{
+    "extraPaths": [
+        "../shared/python",
+        "../components/GestaoCorretores/python",
+        "../components/GestaoEstagnados/python",
+        "../components/DisparadorMensagens/python"
+    ],
+    "pythonVersion": "3.11",
+    "typeCheckingMode": "basic"
+}
