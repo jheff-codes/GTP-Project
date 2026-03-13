@@ -6580,3 +6580,748 @@ httpx.ReadError: [WinError 10035] Uma operação de soquete sem bloqueio não pôde 
 2026-03-13 00:03:46,194 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.message_dispatch "HTTP/2 200 OK"
 2026-03-13 00:03:46,253 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.broker_management "HTTP/2 200 OK"
 2026-03-13 00:03:46,311 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:04:00,015 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:05:00 -03)" (scheduled at 2026-03-13 00:04:00-03:00)
+2026-03-13 00:04:00,015 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:05:00 -03)" (scheduled at 2026-03-13 00:04:00-03:00)
+2026-03-13 00:04:00,015 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:05:00 -03)" (scheduled at 2026-03-13 00:04:00-03:00)
+2026-03-13 00:04:00,016 - PythonEngine - INFO - [TRIGGER] [00:04:00] Job [Gestão de Corretores] DISPARADO pelo scheduler
+2026-03-13 00:04:00,017 - PythonEngine - INFO - [TRIGGER] [00:04:00] Job [Disparos de Mensagem] DISPARADO pelo scheduler
+2026-03-13 00:04:00,017 - PythonEngine - INFO - [TRIGGER] [00:04:00] Job [Clientes Represados] DISPARADO pelo scheduler
+2026-03-13 00:04:00,019 - message_dispatcher - INFO - === DISPARO: Iniciando ciclo global ===
+2026-03-13 00:04:00,152 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:04:00,155 - PythonEngine - INFO - [BROKER] 2 agencias + 0 Global | 00:04
+2026-03-13 00:04:00,158 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/clientes_represados?select=%2A "HTTP/2 200 OK"
+2026-03-13 00:04:00,159 - PythonEngine - INFO - [REDIST] ABORT: 0 leads represados encontrados. Nada a fazer.
+2026-03-13 00:04:00,161 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch&automation_status=eq.RUNNING "HTTP/2 200 OK"
+2026-03-13 00:04:00,162 - message_dispatcher - INFO - [SDR] 1 configuracoes RUNNING encontradas
+2026-03-13 00:04:00,163 - message_dispatcher - INFO -    -> id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:04:00,163 - message_dispatcher - INFO - 
+2026-03-13 00:04:00,163 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:04:00,163 - message_dispatcher - INFO - [SDR] INICIANDO DISPARO [agency=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5]
+2026-03-13 00:04:00,164 - message_dispatcher - INFO - [SDR] settings_id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:04:00,164 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:04:00,200 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.140884ab-4965-4cc7-9bf0-118d798c9046&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:04:00,201 - PythonEngine - INFO - [DECISION] [VITAX Lucas] Agora=00:04, Expediente=09:00-23:59, Janela=09:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:04:00,205 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.stalled_clients_distribution&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:04:00,206 - PythonEngine - INFO - [SUCCESS] [00:04:00] Job [Clientes Represados] FINALIZADO com sucesso
+2026-03-13 00:04:00,207 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:05:00 -03)" executed successfully
+2026-03-13 00:04:00,210 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:04:00,211 - message_dispatcher - INFO - [SDR] Barra -> 5% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:04:00,246 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:04:00,258 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&id=eq.06ba6337-7907-430d-81a4-8695a1e6f2e2 "HTTP/2 200 OK"
+2026-03-13 00:04:00,259 - message_dispatcher - INFO - [SDR] Config fresca OK. Metadata keys: ['prefix', 'end_time', 'pause_days', 'start_time', 'active_days', 'max_per_day', 'delay_maximo', 'delay_minimo', 'horario_final', 'dispatch_table', 'chat_table_name', 'horario_inicial', 'limite_disparos', 'cycle_start_date', 'uazapi_instances', 'randomize_pattern', 'mensagem_1_variants', 'mensagem_2_variants']
+2026-03-13 00:04:00,294 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:04:00,296 - PythonEngine - INFO - [OK] [VITAX Lucas] Fora do expediente, 0 ativos.
+2026-03-13 00:04:00,310 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:04:00,311 - message_dispatcher - INFO - [SDR] Barra -> 8% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:04:00,312 - message_dispatcher - INFO - [SDR] ABORT: Fora do expediente (00:04, janela 07:00-19:00)
+2026-03-13 00:04:00,351 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:04:00,352 - PythonEngine - INFO - [DECISION] [VR Tony] Agora=00:04, Expediente=08:00-23:59, Janela=08:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:04:00,365 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:04:00,366 - PythonEngine - INFO - [SUCCESS] [00:04:00] Job [Disparos de Mensagem] FINALIZADO com sucesso
+2026-03-13 00:04:00,367 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:05:00 -03)" executed successfully
+2026-03-13 00:04:00,411 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:04:00,462 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:04:00,463 - PythonEngine - INFO - [OK] [VR Tony] Fora do expediente, 0 ativos.
+2026-03-13 00:04:00,464 - PythonEngine - INFO - [BROKER] Ciclo OK: 2 agencias, 0 logouts
+2026-03-13 00:04:00,506 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:04:00,507 - PythonEngine - INFO - [SUCCESS] [00:04:00] Job [Gestão de Corretores] FINALIZADO com sucesso
+2026-03-13 00:04:00,507 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:05:00 -03)" executed successfully
+2026-03-13 00:04:30,008 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/2', second='30'], next run at: 2026-03-13 00:06:30 -03)" (scheduled at 2026-03-13 00:04:30-03:00)
+2026-03-13 00:04:30,009 - PythonEngine - INFO - [TRIGGER] [00:04:30] Job [Watchdog Alertas de Erro] DISPARADO pelo scheduler
+2026-03-13 00:04:30,010 - error_alerts - INFO - [WATCHDOG] [00:04:30] Iniciando ciclo de verificação...
+2026-03-13 00:04:30,267 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.error_alerts&automation_status=eq.RUNNING&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:04:30,268 - error_alerts - INFO - [WATCHDOG] Checkpoint atual: 2026-03-05T02:59:00.264193+00:00
+2026-03-13 00:04:30,685 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/logs?select=%2A&level=eq.ERROR&created_at=gt.2026-03-05T02%3A59%3A00.264193%2B00%3A00&order=created_at.asc&limit=50 "HTTP/2 200 OK"
+2026-03-13 00:04:30,686 - error_alerts - INFO - [WATCHDOG] ABORT: 0 novos erros encontrados.
+2026-03-13 00:04:30,686 - PythonEngine - INFO - [SUCCESS] [00:04:30] Job [Watchdog Alertas de Erro] FINALIZADO com sucesso
+2026-03-13 00:04:30,686 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/2', second='30'], next run at: 2026-03-13 00:06:30 -03)" executed successfully
+2026-03-13 00:04:46,313 - PythonEngine - INFO - [SYNC] #51 @ 00:04 -- Verificando intervalos e status...
+2026-03-13 00:04:46,558 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:04:46,699 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:04:46,789 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:04:46,865 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:04:46,928 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:04:47,000 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:05:00,015 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:06:00 -03)" (scheduled at 2026-03-13 00:05:00-03:00)
+2026-03-13 00:05:00,015 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:06:00 -03)" (scheduled at 2026-03-13 00:05:00-03:00)
+2026-03-13 00:05:00,015 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:06:00 -03)" (scheduled at 2026-03-13 00:05:00-03:00)
+2026-03-13 00:05:00,016 - PythonEngine - INFO - [TRIGGER] [00:05:00] Job [Gestão de Corretores] DISPARADO pelo scheduler
+2026-03-13 00:05:00,016 - PythonEngine - INFO - [TRIGGER] [00:05:00] Job [Disparos de Mensagem] DISPARADO pelo scheduler
+2026-03-13 00:05:00,017 - PythonEngine - INFO - [TRIGGER] [00:05:00] Job [Clientes Represados] DISPARADO pelo scheduler
+2026-03-13 00:05:00,018 - message_dispatcher - INFO - === DISPARO: Iniciando ciclo global ===
+2026-03-13 00:05:00,155 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:05:00,156 - PythonEngine - INFO - [BROKER] 2 agencias + 0 Global | 00:05
+2026-03-13 00:05:00,159 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/clientes_represados?select=%2A "HTTP/2 200 OK"
+2026-03-13 00:05:00,160 - PythonEngine - INFO - [REDIST] ABORT: 0 leads represados encontrados. Nada a fazer.
+2026-03-13 00:05:00,162 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch&automation_status=eq.RUNNING "HTTP/2 200 OK"
+2026-03-13 00:05:00,163 - message_dispatcher - INFO - [SDR] 1 configuracoes RUNNING encontradas
+2026-03-13 00:05:00,164 - message_dispatcher - INFO -    -> id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:05:00,164 - message_dispatcher - INFO - 
+2026-03-13 00:05:00,164 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:05:00,164 - message_dispatcher - INFO - [SDR] INICIANDO DISPARO [agency=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5]
+2026-03-13 00:05:00,165 - message_dispatcher - INFO - [SDR] settings_id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:05:00,165 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:05:00,206 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.140884ab-4965-4cc7-9bf0-118d798c9046&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:05:00,206 - PythonEngine - INFO - [DECISION] [VITAX Lucas] Agora=00:05, Expediente=09:00-23:59, Janela=09:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:05:00,210 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.stalled_clients_distribution&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:05:00,211 - PythonEngine - INFO - [SUCCESS] [00:05:00] Job [Clientes Represados] FINALIZADO com sucesso
+2026-03-13 00:05:00,211 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:06:00 -03)" executed successfully
+2026-03-13 00:05:00,226 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:05:00,227 - message_dispatcher - INFO - [SDR] Barra -> 5% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:05:00,261 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:05:00,280 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&id=eq.06ba6337-7907-430d-81a4-8695a1e6f2e2 "HTTP/2 200 OK"
+2026-03-13 00:05:00,281 - message_dispatcher - INFO - [SDR] Config fresca OK. Metadata keys: ['prefix', 'end_time', 'pause_days', 'start_time', 'active_days', 'max_per_day', 'delay_maximo', 'delay_minimo', 'horario_final', 'dispatch_table', 'chat_table_name', 'horario_inicial', 'limite_disparos', 'cycle_start_date', 'uazapi_instances', 'randomize_pattern', 'mensagem_1_variants', 'mensagem_2_variants']
+2026-03-13 00:05:00,311 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:05:00,312 - PythonEngine - INFO - [OK] [VITAX Lucas] Fora do expediente, 0 ativos.
+2026-03-13 00:05:00,348 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:05:00,349 - message_dispatcher - INFO - [SDR] Barra -> 8% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:05:00,350 - message_dispatcher - INFO - [SDR] ABORT: Fora do expediente (00:05, janela 07:00-19:00)
+2026-03-13 00:05:00,368 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:05:00,368 - PythonEngine - INFO - [DECISION] [VR Tony] Agora=00:05, Expediente=08:00-23:59, Janela=08:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:05:00,415 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:05:00,416 - PythonEngine - INFO - [SUCCESS] [00:05:00] Job [Disparos de Mensagem] FINALIZADO com sucesso
+2026-03-13 00:05:00,416 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:06:00 -03)" executed successfully
+2026-03-13 00:05:00,420 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:05:00,470 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:05:00,471 - PythonEngine - INFO - [OK] [VR Tony] Fora do expediente, 0 ativos.
+2026-03-13 00:05:00,471 - PythonEngine - INFO - [BROKER] Ciclo OK: 2 agencias, 0 logouts
+2026-03-13 00:05:00,518 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:05:00,519 - PythonEngine - INFO - [SUCCESS] [00:05:00] Job [Gestão de Corretores] FINALIZADO com sucesso
+2026-03-13 00:05:00,520 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:06:00 -03)" executed successfully
+2026-03-13 00:05:47,002 - PythonEngine - INFO - [SYNC] #52 @ 00:05 -- Verificando intervalos e status...
+2026-03-13 00:05:47,487 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:05:47,563 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:05:47,624 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:05:47,753 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:05:47,829 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:05:47,894 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:06:00,017 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:07:00 -03)" (scheduled at 2026-03-13 00:06:00-03:00)
+2026-03-13 00:06:00,017 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:07:00 -03)" (scheduled at 2026-03-13 00:06:00-03:00)
+2026-03-13 00:06:00,017 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:07:00 -03)" (scheduled at 2026-03-13 00:06:00-03:00)
+2026-03-13 00:06:00,018 - PythonEngine - INFO - [TRIGGER] [00:06:00] Job [Gestão de Corretores] DISPARADO pelo scheduler
+2026-03-13 00:06:00,018 - PythonEngine - INFO - [TRIGGER] [00:06:00] Job [Disparos de Mensagem] DISPARADO pelo scheduler
+2026-03-13 00:06:00,019 - PythonEngine - INFO - [TRIGGER] [00:06:00] Job [Clientes Represados] DISPARADO pelo scheduler
+2026-03-13 00:06:00,020 - message_dispatcher - INFO - === DISPARO: Iniciando ciclo global ===
+2026-03-13 00:06:00,118 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:06:00,120 - PythonEngine - INFO - [BROKER] 2 agencias + 0 Global | 00:06
+2026-03-13 00:06:00,132 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch&automation_status=eq.RUNNING "HTTP/2 200 OK"
+2026-03-13 00:06:00,139 - message_dispatcher - INFO - [SDR] 1 configuracoes RUNNING encontradas
+2026-03-13 00:06:00,140 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/clientes_represados?select=%2A "HTTP/2 200 OK"
+2026-03-13 00:06:00,140 - message_dispatcher - INFO -    -> id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:06:00,141 - PythonEngine - INFO - [REDIST] ABORT: 0 leads represados encontrados. Nada a fazer.
+2026-03-13 00:06:00,141 - message_dispatcher - INFO - 
+2026-03-13 00:06:00,143 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:06:00,143 - message_dispatcher - INFO - [SDR] INICIANDO DISPARO [agency=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5]
+2026-03-13 00:06:00,143 - message_dispatcher - INFO - [SDR] settings_id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:06:00,144 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:06:00,161 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.140884ab-4965-4cc7-9bf0-118d798c9046&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:06:00,162 - PythonEngine - INFO - [DECISION] [VITAX Lucas] Agora=00:06, Expediente=09:00-23:59, Janela=09:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:06:00,190 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.stalled_clients_distribution&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:06:00,191 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:06:00,191 - PythonEngine - INFO - [SUCCESS] [00:06:00] Job [Clientes Represados] FINALIZADO com sucesso
+2026-03-13 00:06:00,192 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:07:00 -03)" executed successfully
+2026-03-13 00:06:00,206 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:06:00,207 - message_dispatcher - INFO - [SDR] Barra -> 5% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:06:00,252 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&id=eq.06ba6337-7907-430d-81a4-8695a1e6f2e2 "HTTP/2 200 OK"
+2026-03-13 00:06:00,253 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:06:00,253 - message_dispatcher - INFO - [SDR] Config fresca OK. Metadata keys: ['prefix', 'end_time', 'pause_days', 'start_time', 'active_days', 'max_per_day', 'delay_maximo', 'delay_minimo', 'horario_final', 'dispatch_table', 'chat_table_name', 'horario_inicial', 'limite_disparos', 'cycle_start_date', 'uazapi_instances', 'randomize_pattern', 'mensagem_1_variants', 'mensagem_2_variants']
+2026-03-13 00:06:00,254 - PythonEngine - INFO - [OK] [VITAX Lucas] Fora do expediente, 0 ativos.
+2026-03-13 00:06:00,301 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:06:00,302 - PythonEngine - INFO - [DECISION] [VR Tony] Agora=00:06, Expediente=08:00-23:59, Janela=08:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:06:00,304 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:06:00,305 - message_dispatcher - INFO - [SDR] Barra -> 8% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:06:00,305 - message_dispatcher - INFO - [SDR] ABORT: Fora do expediente (00:06, janela 07:00-19:00)
+2026-03-13 00:06:00,352 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:06:00,356 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:06:00,358 - PythonEngine - INFO - [SUCCESS] [00:06:00] Job [Disparos de Mensagem] FINALIZADO com sucesso
+2026-03-13 00:06:00,358 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:07:00 -03)" executed successfully
+2026-03-13 00:06:00,407 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:06:00,409 - PythonEngine - INFO - [OK] [VR Tony] Fora do expediente, 0 ativos.
+2026-03-13 00:06:00,409 - PythonEngine - INFO - [BROKER] Ciclo OK: 2 agencias, 0 logouts
+2026-03-13 00:06:00,451 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:06:00,452 - PythonEngine - INFO - [SUCCESS] [00:06:00] Job [Gestão de Corretores] FINALIZADO com sucesso
+2026-03-13 00:06:00,452 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:07:00 -03)" executed successfully
+2026-03-13 00:06:30,012 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/2', second='30'], next run at: 2026-03-13 00:08:30 -03)" (scheduled at 2026-03-13 00:06:30-03:00)
+2026-03-13 00:06:30,013 - PythonEngine - INFO - [TRIGGER] [00:06:30] Job [Watchdog Alertas de Erro] DISPARADO pelo scheduler
+2026-03-13 00:06:30,013 - error_alerts - INFO - [WATCHDOG] [00:06:30] Iniciando ciclo de verificação...
+2026-03-13 00:06:30,135 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.error_alerts&automation_status=eq.RUNNING&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:06:30,136 - error_alerts - INFO - [WATCHDOG] Checkpoint atual: 2026-03-05T02:59:00.264193+00:00
+2026-03-13 00:06:30,188 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/logs?select=%2A&level=eq.ERROR&created_at=gt.2026-03-05T02%3A59%3A00.264193%2B00%3A00&order=created_at.asc&limit=50 "HTTP/2 200 OK"
+2026-03-13 00:06:30,189 - error_alerts - INFO - [WATCHDOG] ABORT: 0 novos erros encontrados.
+2026-03-13 00:06:30,189 - PythonEngine - INFO - [SUCCESS] [00:06:30] Job [Watchdog Alertas de Erro] FINALIZADO com sucesso
+2026-03-13 00:06:30,189 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/2', second='30'], next run at: 2026-03-13 00:08:30 -03)" executed successfully
+2026-03-13 00:06:47,896 - PythonEngine - INFO - [SYNC] #53 @ 00:06 -- Verificando intervalos e status...
+2026-03-13 00:06:48,026 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:06:48,122 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:06:48,196 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:06:48,269 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:06:48,316 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:06:48,378 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:07:00,014 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:08:00 -03)" (scheduled at 2026-03-13 00:07:00-03:00)
+2026-03-13 00:07:00,014 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:08:00 -03)" (scheduled at 2026-03-13 00:07:00-03:00)
+2026-03-13 00:07:00,014 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:08:00 -03)" (scheduled at 2026-03-13 00:07:00-03:00)
+2026-03-13 00:07:00,014 - PythonEngine - INFO - [TRIGGER] [00:07:00] Job [Gestão de Corretores] DISPARADO pelo scheduler
+2026-03-13 00:07:00,015 - PythonEngine - INFO - [TRIGGER] [00:07:00] Job [Clientes Represados] DISPARADO pelo scheduler
+2026-03-13 00:07:00,015 - PythonEngine - INFO - [TRIGGER] [00:07:00] Job [Disparos de Mensagem] DISPARADO pelo scheduler
+2026-03-13 00:07:00,018 - message_dispatcher - INFO - === DISPARO: Iniciando ciclo global ===
+2026-03-13 00:07:00,107 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:07:00,109 - PythonEngine - INFO - [BROKER] 2 agencias + 0 Global | 00:07
+2026-03-13 00:07:00,126 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch&automation_status=eq.RUNNING "HTTP/2 200 OK"
+2026-03-13 00:07:00,127 - message_dispatcher - INFO - [SDR] 1 configuracoes RUNNING encontradas
+2026-03-13 00:07:00,128 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/clientes_represados?select=%2A "HTTP/2 200 OK"
+2026-03-13 00:07:00,128 - message_dispatcher - INFO -    -> id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:07:00,129 - message_dispatcher - INFO - 
+2026-03-13 00:07:00,129 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:07:00,129 - message_dispatcher - INFO - [SDR] INICIANDO DISPARO [agency=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5]
+2026-03-13 00:07:00,130 - message_dispatcher - INFO - [SDR] settings_id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:07:00,130 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:07:00,150 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.140884ab-4965-4cc7-9bf0-118d798c9046&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:07:00,150 - PythonEngine - INFO - [REDIST] ABORT: 0 leads represados encontrados. Nada a fazer.
+2026-03-13 00:07:00,174 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:07:00,174 - PythonEngine - INFO - [DECISION] [VITAX Lucas] Agora=00:07, Expediente=09:00-23:59, Janela=09:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:07:00,175 - message_dispatcher - INFO - [SDR] Barra -> 5% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:07:00,194 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.stalled_clients_distribution&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:07:00,194 - PythonEngine - INFO - [SUCCESS] [00:07:00] Job [Clientes Represados] FINALIZADO com sucesso
+2026-03-13 00:07:00,195 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:08:00 -03)" executed successfully
+2026-03-13 00:07:00,221 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:07:00,225 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&id=eq.06ba6337-7907-430d-81a4-8695a1e6f2e2 "HTTP/2 200 OK"
+2026-03-13 00:07:00,225 - message_dispatcher - INFO - [SDR] Config fresca OK. Metadata keys: ['prefix', 'end_time', 'pause_days', 'start_time', 'active_days', 'max_per_day', 'delay_maximo', 'delay_minimo', 'horario_final', 'dispatch_table', 'chat_table_name', 'horario_inicial', 'limite_disparos', 'cycle_start_date', 'uazapi_instances', 'randomize_pattern', 'mensagem_1_variants', 'mensagem_2_variants']
+2026-03-13 00:07:00,265 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:07:00,266 - PythonEngine - INFO - [OK] [VITAX Lucas] Fora do expediente, 0 ativos.
+2026-03-13 00:07:00,268 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:07:00,269 - message_dispatcher - INFO - [SDR] Barra -> 8% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:07:00,269 - message_dispatcher - INFO - [SDR] ABORT: Fora do expediente (00:07, janela 07:00-19:00)
+2026-03-13 00:07:00,311 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:07:00,312 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:07:00,312 - PythonEngine - INFO - [DECISION] [VR Tony] Agora=00:07, Expediente=08:00-23:59, Janela=08:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:07:00,314 - PythonEngine - INFO - [SUCCESS] [00:07:00] Job [Disparos de Mensagem] FINALIZADO com sucesso
+2026-03-13 00:07:00,315 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:08:00 -03)" executed successfully
+2026-03-13 00:07:00,355 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:07:00,396 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:07:00,398 - PythonEngine - INFO - [OK] [VR Tony] Fora do expediente, 0 ativos.
+2026-03-13 00:07:00,398 - PythonEngine - INFO - [BROKER] Ciclo OK: 2 agencias, 0 logouts
+2026-03-13 00:07:00,447 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:07:00,448 - PythonEngine - INFO - [SUCCESS] [00:07:00] Job [Gestão de Corretores] FINALIZADO com sucesso
+2026-03-13 00:07:00,448 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:08:00 -03)" executed successfully
+2026-03-13 00:07:48,380 - PythonEngine - INFO - [SYNC] #54 @ 00:07 -- Verificando intervalos e status...
+2026-03-13 00:07:48,725 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:07:48,792 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:07:48,893 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:07:48,992 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:07:49,047 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:07:49,135 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:08:00,004 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:09:00 -03)" (scheduled at 2026-03-13 00:08:00-03:00)
+2026-03-13 00:08:00,005 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:09:00 -03)" (scheduled at 2026-03-13 00:08:00-03:00)
+2026-03-13 00:08:00,005 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:09:00 -03)" (scheduled at 2026-03-13 00:08:00-03:00)
+2026-03-13 00:08:00,005 - PythonEngine - INFO - [TRIGGER] [00:08:00] Job [Gestão de Corretores] DISPARADO pelo scheduler
+2026-03-13 00:08:00,006 - PythonEngine - INFO - [TRIGGER] [00:08:00] Job [Clientes Represados] DISPARADO pelo scheduler
+2026-03-13 00:08:00,006 - PythonEngine - INFO - [TRIGGER] [00:08:00] Job [Disparos de Mensagem] DISPARADO pelo scheduler
+2026-03-13 00:08:00,009 - message_dispatcher - INFO - === DISPARO: Iniciando ciclo global ===
+2026-03-13 00:08:00,105 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:08:00,107 - PythonEngine - INFO - [BROKER] 2 agencias + 0 Global | 00:08
+2026-03-13 00:08:00,118 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/clientes_represados?select=%2A "HTTP/2 200 OK"
+2026-03-13 00:08:00,118 - PythonEngine - INFO - [REDIST] ABORT: 0 leads represados encontrados. Nada a fazer.
+2026-03-13 00:08:00,122 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch&automation_status=eq.RUNNING "HTTP/2 200 OK"
+2026-03-13 00:08:00,123 - message_dispatcher - INFO - [SDR] 1 configuracoes RUNNING encontradas
+2026-03-13 00:08:00,123 - message_dispatcher - INFO -    -> id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:08:00,123 - message_dispatcher - INFO - 
+2026-03-13 00:08:00,123 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:08:00,124 - message_dispatcher - INFO - [SDR] INICIANDO DISPARO [agency=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5]
+2026-03-13 00:08:00,124 - message_dispatcher - INFO - [SDR] settings_id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:08:00,124 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:08:00,160 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.140884ab-4965-4cc7-9bf0-118d798c9046&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:08:00,161 - PythonEngine - INFO - [DECISION] [VITAX Lucas] Agora=00:08, Expediente=09:00-23:59, Janela=09:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:08:00,169 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:08:00,171 - message_dispatcher - INFO - [SDR] Barra -> 5% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:08:00,178 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.stalled_clients_distribution&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:08:00,179 - PythonEngine - INFO - [SUCCESS] [00:08:00] Job [Clientes Represados] FINALIZADO com sucesso
+2026-03-13 00:08:00,180 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:09:00 -03)" executed successfully
+2026-03-13 00:08:00,207 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:08:00,226 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&id=eq.06ba6337-7907-430d-81a4-8695a1e6f2e2 "HTTP/2 200 OK"
+2026-03-13 00:08:00,227 - message_dispatcher - INFO - [SDR] Config fresca OK. Metadata keys: ['prefix', 'end_time', 'pause_days', 'start_time', 'active_days', 'max_per_day', 'delay_maximo', 'delay_minimo', 'horario_final', 'dispatch_table', 'chat_table_name', 'horario_inicial', 'limite_disparos', 'cycle_start_date', 'uazapi_instances', 'randomize_pattern', 'mensagem_1_variants', 'mensagem_2_variants']
+2026-03-13 00:08:00,257 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:08:00,257 - PythonEngine - INFO - [OK] [VITAX Lucas] Fora do expediente, 0 ativos.
+2026-03-13 00:08:00,274 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:08:00,275 - message_dispatcher - INFO - [SDR] Barra -> 8% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:08:00,276 - message_dispatcher - INFO - [SDR] ABORT: Fora do expediente (00:08, janela 07:00-19:00)
+2026-03-13 00:08:00,301 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:08:00,302 - PythonEngine - INFO - [DECISION] [VR Tony] Agora=00:08, Expediente=08:00-23:59, Janela=08:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:08:00,348 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:08:00,351 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:08:00,352 - PythonEngine - INFO - [SUCCESS] [00:08:00] Job [Disparos de Mensagem] FINALIZADO com sucesso
+2026-03-13 00:08:00,352 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:09:00 -03)" executed successfully
+2026-03-13 00:08:00,396 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:08:00,398 - PythonEngine - INFO - [OK] [VR Tony] Fora do expediente, 0 ativos.
+2026-03-13 00:08:00,398 - PythonEngine - INFO - [BROKER] Ciclo OK: 2 agencias, 0 logouts
+2026-03-13 00:08:00,441 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:08:00,442 - PythonEngine - INFO - [SUCCESS] [00:08:00] Job [Gestão de Corretores] FINALIZADO com sucesso
+2026-03-13 00:08:00,442 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:09:00 -03)" executed successfully
+2026-03-13 00:08:30,006 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/2', second='30'], next run at: 2026-03-13 00:10:30 -03)" (scheduled at 2026-03-13 00:08:30-03:00)
+2026-03-13 00:08:30,007 - PythonEngine - INFO - [TRIGGER] [00:08:30] Job [Watchdog Alertas de Erro] DISPARADO pelo scheduler
+2026-03-13 00:08:30,007 - error_alerts - INFO - [WATCHDOG] [00:08:30] Iniciando ciclo de verificação...
+2026-03-13 00:08:30,116 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.error_alerts&automation_status=eq.RUNNING&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:08:30,118 - error_alerts - INFO - [WATCHDOG] Checkpoint atual: 2026-03-05T02:59:00.264193+00:00
+2026-03-13 00:08:30,158 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/logs?select=%2A&level=eq.ERROR&created_at=gt.2026-03-05T02%3A59%3A00.264193%2B00%3A00&order=created_at.asc&limit=50 "HTTP/2 200 OK"
+2026-03-13 00:08:30,159 - error_alerts - INFO - [WATCHDOG] ABORT: 0 novos erros encontrados.
+2026-03-13 00:08:30,160 - PythonEngine - INFO - [SUCCESS] [00:08:30] Job [Watchdog Alertas de Erro] FINALIZADO com sucesso
+2026-03-13 00:08:30,160 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/2', second='30'], next run at: 2026-03-13 00:10:30 -03)" executed successfully
+2026-03-13 00:08:49,137 - PythonEngine - INFO - [SYNC] #55 @ 00:08 -- Verificando intervalos e status...
+2026-03-13 00:08:49,243 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:08:49,304 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:08:49,361 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:08:49,411 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:08:49,462 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:08:49,526 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:09:00,001 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:10:00 -03)" (scheduled at 2026-03-13 00:09:00-03:00)
+2026-03-13 00:09:00,002 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:10:00 -03)" (scheduled at 2026-03-13 00:09:00-03:00)
+2026-03-13 00:09:00,002 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:10:00 -03)" (scheduled at 2026-03-13 00:09:00-03:00)
+2026-03-13 00:09:00,002 - PythonEngine - INFO - [TRIGGER] [00:09:00] Job [Gestão de Corretores] DISPARADO pelo scheduler
+2026-03-13 00:09:00,002 - PythonEngine - INFO - [TRIGGER] [00:09:00] Job [Clientes Represados] DISPARADO pelo scheduler
+2026-03-13 00:09:00,003 - PythonEngine - INFO - [TRIGGER] [00:09:00] Job [Disparos de Mensagem] DISPARADO pelo scheduler
+2026-03-13 00:09:00,006 - message_dispatcher - INFO - === DISPARO: Iniciando ciclo global ===
+2026-03-13 00:09:00,128 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:09:00,130 - PythonEngine - INFO - [BROKER] 2 agencias + 0 Global | 00:09
+2026-03-13 00:09:00,146 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch&automation_status=eq.RUNNING "HTTP/2 200 OK"
+2026-03-13 00:09:00,147 - message_dispatcher - INFO - [SDR] 1 configuracoes RUNNING encontradas
+2026-03-13 00:09:00,147 - message_dispatcher - INFO -    -> id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:09:00,148 - message_dispatcher - INFO - 
+2026-03-13 00:09:00,148 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:09:00,148 - message_dispatcher - INFO - [SDR] INICIANDO DISPARO [agency=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5]
+2026-03-13 00:09:00,148 - message_dispatcher - INFO - [SDR] settings_id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:09:00,149 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:09:00,152 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/clientes_represados?select=%2A "HTTP/2 200 OK"
+2026-03-13 00:09:00,175 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.140884ab-4965-4cc7-9bf0-118d798c9046&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:09:00,175 - PythonEngine - INFO - [REDIST] ABORT: 0 leads represados encontrados. Nada a fazer.
+2026-03-13 00:09:00,176 - PythonEngine - INFO - [DECISION] [VITAX Lucas] Agora=00:09, Expediente=09:00-23:59, Janela=09:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:09:00,202 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:09:00,203 - message_dispatcher - INFO - [SDR] Barra -> 5% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:09:00,225 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:09:00,232 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.stalled_clients_distribution&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:09:00,233 - PythonEngine - INFO - [SUCCESS] [00:09:00] Job [Clientes Represados] FINALIZADO com sucesso
+2026-03-13 00:09:00,233 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:10:00 -03)" executed successfully
+2026-03-13 00:09:00,254 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&id=eq.06ba6337-7907-430d-81a4-8695a1e6f2e2 "HTTP/2 200 OK"
+2026-03-13 00:09:00,255 - message_dispatcher - INFO - [SDR] Config fresca OK. Metadata keys: ['prefix', 'end_time', 'pause_days', 'start_time', 'active_days', 'max_per_day', 'delay_maximo', 'delay_minimo', 'horario_final', 'dispatch_table', 'chat_table_name', 'horario_inicial', 'limite_disparos', 'cycle_start_date', 'uazapi_instances', 'randomize_pattern', 'mensagem_1_variants', 'mensagem_2_variants']
+2026-03-13 00:09:00,273 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:09:00,274 - PythonEngine - INFO - [OK] [VITAX Lucas] Fora do expediente, 0 ativos.
+2026-03-13 00:09:00,308 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:09:00,321 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:09:00,322 - message_dispatcher - INFO - [SDR] Barra -> 8% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:09:00,322 - message_dispatcher - INFO - [SDR] ABORT: Fora do expediente (00:09, janela 07:00-19:00)
+2026-03-13 00:09:00,322 - PythonEngine - INFO - [DECISION] [VR Tony] Agora=00:09, Expediente=08:00-23:59, Janela=08:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:09:00,370 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:09:00,371 - PythonEngine - INFO - [SUCCESS] [00:09:00] Job [Disparos de Mensagem] FINALIZADO com sucesso
+2026-03-13 00:09:00,371 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:10:00 -03)" executed successfully
+2026-03-13 00:09:00,373 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:09:00,420 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:09:00,421 - PythonEngine - INFO - [OK] [VR Tony] Fora do expediente, 0 ativos.
+2026-03-13 00:09:00,421 - PythonEngine - INFO - [BROKER] Ciclo OK: 2 agencias, 0 logouts
+2026-03-13 00:09:00,468 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:09:00,469 - PythonEngine - INFO - [SUCCESS] [00:09:00] Job [Gestão de Corretores] FINALIZADO com sucesso
+2026-03-13 00:09:00,469 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:10:00 -03)" executed successfully
+2026-03-13 00:09:49,527 - PythonEngine - INFO - [SYNC] #56 @ 00:09 -- Verificando intervalos e status...
+2026-03-13 00:09:49,850 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:09:49,903 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:09:49,965 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:09:50,015 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:09:50,066 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:09:50,122 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:10:00,013 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:11:00 -03)" (scheduled at 2026-03-13 00:10:00-03:00)
+2026-03-13 00:10:00,013 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:11:00 -03)" (scheduled at 2026-03-13 00:10:00-03:00)
+2026-03-13 00:10:00,013 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:11:00 -03)" (scheduled at 2026-03-13 00:10:00-03:00)
+2026-03-13 00:10:00,014 - PythonEngine - INFO - [TRIGGER] [00:10:00] Job [Gestão de Corretores] DISPARADO pelo scheduler
+2026-03-13 00:10:00,014 - PythonEngine - INFO - [TRIGGER] [00:10:00] Job [Disparos de Mensagem] DISPARADO pelo scheduler
+2026-03-13 00:10:00,015 - PythonEngine - INFO - [TRIGGER] [00:10:00] Job [Clientes Represados] DISPARADO pelo scheduler
+2026-03-13 00:10:00,017 - message_dispatcher - INFO - === DISPARO: Iniciando ciclo global ===
+2026-03-13 00:10:00,141 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:10:00,143 - PythonEngine - INFO - [BROKER] 2 agencias + 0 Global | 00:10
+2026-03-13 00:10:00,149 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch&automation_status=eq.RUNNING "HTTP/2 200 OK"
+2026-03-13 00:10:00,150 - message_dispatcher - INFO - [SDR] 1 configuracoes RUNNING encontradas
+2026-03-13 00:10:00,150 - message_dispatcher - INFO -    -> id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:10:00,151 - message_dispatcher - INFO - 
+2026-03-13 00:10:00,151 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:10:00,151 - message_dispatcher - INFO - [SDR] INICIANDO DISPARO [agency=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5]
+2026-03-13 00:10:00,151 - message_dispatcher - INFO - [SDR] settings_id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:10:00,152 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:10:00,168 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/clientes_represados?select=%2A "HTTP/2 200 OK"
+2026-03-13 00:10:00,169 - PythonEngine - INFO - [REDIST] ABORT: 0 leads represados encontrados. Nada a fazer.
+2026-03-13 00:10:00,189 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:10:00,190 - PythonEngine - INFO - [DECISION] [VR Tony] Agora=00:10, Expediente=08:00-23:59, Janela=08:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:10:00,194 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:10:00,196 - message_dispatcher - INFO - [SDR] Barra -> 5% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:10:00,225 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.stalled_clients_distribution&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:10:00,226 - PythonEngine - INFO - [SUCCESS] [00:10:00] Job [Clientes Represados] FINALIZADO com sucesso
+2026-03-13 00:10:00,227 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:11:00 -03)" executed successfully
+2026-03-13 00:10:00,241 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&id=eq.06ba6337-7907-430d-81a4-8695a1e6f2e2 "HTTP/2 200 OK"
+2026-03-13 00:10:00,242 - message_dispatcher - INFO - [SDR] Config fresca OK. Metadata keys: ['prefix', 'end_time', 'pause_days', 'start_time', 'active_days', 'max_per_day', 'delay_maximo', 'delay_minimo', 'horario_final', 'dispatch_table', 'chat_table_name', 'horario_inicial', 'limite_disparos', 'cycle_start_date', 'uazapi_instances', 'randomize_pattern', 'mensagem_1_variants', 'mensagem_2_variants']
+2026-03-13 00:10:00,243 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:10:00,287 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:10:00,289 - PythonEngine - INFO - [OK] [VR Tony] Fora do expediente, 0 ativos.
+2026-03-13 00:10:00,297 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:10:00,298 - message_dispatcher - INFO - [SDR] Barra -> 8% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:10:00,298 - message_dispatcher - INFO - [SDR] ABORT: Fora do expediente (00:10, janela 07:00-19:00)
+2026-03-13 00:10:00,331 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.140884ab-4965-4cc7-9bf0-118d798c9046&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:10:00,331 - PythonEngine - INFO - [DECISION] [VITAX Lucas] Agora=00:10, Expediente=09:00-23:59, Janela=09:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:10:00,348 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:10:00,349 - PythonEngine - INFO - [SUCCESS] [00:10:00] Job [Disparos de Mensagem] FINALIZADO com sucesso
+2026-03-13 00:10:00,350 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:11:00 -03)" executed successfully
+2026-03-13 00:10:00,381 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:10:00,423 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:10:00,424 - PythonEngine - INFO - [OK] [VITAX Lucas] Fora do expediente, 0 ativos.
+2026-03-13 00:10:00,424 - PythonEngine - INFO - [BROKER] Ciclo OK: 2 agencias, 0 logouts
+2026-03-13 00:10:00,472 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:10:00,473 - PythonEngine - INFO - [SUCCESS] [00:10:00] Job [Gestão de Corretores] FINALIZADO com sucesso
+2026-03-13 00:10:00,473 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:11:00 -03)" executed successfully
+2026-03-13 00:10:30,010 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/2', second='30'], next run at: 2026-03-13 00:12:30 -03)" (scheduled at 2026-03-13 00:10:30-03:00)
+2026-03-13 00:10:30,011 - PythonEngine - INFO - [TRIGGER] [00:10:30] Job [Watchdog Alertas de Erro] DISPARADO pelo scheduler
+2026-03-13 00:10:30,011 - error_alerts - INFO - [WATCHDOG] [00:10:30] Iniciando ciclo de verificação...
+2026-03-13 00:10:30,103 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.error_alerts&automation_status=eq.RUNNING&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:10:30,105 - error_alerts - INFO - [WATCHDOG] Checkpoint atual: 2026-03-05T02:59:00.264193+00:00
+2026-03-13 00:10:30,157 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/logs?select=%2A&level=eq.ERROR&created_at=gt.2026-03-05T02%3A59%3A00.264193%2B00%3A00&order=created_at.asc&limit=50 "HTTP/2 200 OK"
+2026-03-13 00:10:30,158 - error_alerts - INFO - [WATCHDOG] ABORT: 0 novos erros encontrados.
+2026-03-13 00:10:30,158 - PythonEngine - INFO - [SUCCESS] [00:10:30] Job [Watchdog Alertas de Erro] FINALIZADO com sucesso
+2026-03-13 00:10:30,158 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/2', second='30'], next run at: 2026-03-13 00:12:30 -03)" executed successfully
+2026-03-13 00:10:50,124 - PythonEngine - INFO - [SYNC] #57 @ 00:10 -- Verificando intervalos e status...
+2026-03-13 00:10:50,240 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:10:50,296 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:10:50,342 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:10:50,389 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:10:50,438 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:10:50,488 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:11:00,009 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:12:00 -03)" (scheduled at 2026-03-13 00:11:00-03:00)
+2026-03-13 00:11:00,009 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:12:00 -03)" (scheduled at 2026-03-13 00:11:00-03:00)
+2026-03-13 00:11:00,009 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:12:00 -03)" (scheduled at 2026-03-13 00:11:00-03:00)
+2026-03-13 00:11:00,010 - PythonEngine - INFO - [TRIGGER] [00:11:00] Job [Gestão de Corretores] DISPARADO pelo scheduler
+2026-03-13 00:11:00,010 - PythonEngine - INFO - [TRIGGER] [00:11:00] Job [Disparos de Mensagem] DISPARADO pelo scheduler
+2026-03-13 00:11:00,011 - PythonEngine - INFO - [TRIGGER] [00:11:00] Job [Clientes Represados] DISPARADO pelo scheduler
+2026-03-13 00:11:00,012 - message_dispatcher - INFO - === DISPARO: Iniciando ciclo global ===
+2026-03-13 00:11:00,112 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:11:00,114 - PythonEngine - INFO - [BROKER] 2 agencias + 0 Global | 00:11
+2026-03-13 00:11:00,126 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/clientes_represados?select=%2A "HTTP/2 200 OK"
+2026-03-13 00:11:00,127 - PythonEngine - INFO - [REDIST] ABORT: 0 leads represados encontrados. Nada a fazer.
+2026-03-13 00:11:00,130 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch&automation_status=eq.RUNNING "HTTP/2 200 OK"
+2026-03-13 00:11:00,131 - message_dispatcher - INFO - [SDR] 1 configuracoes RUNNING encontradas
+2026-03-13 00:11:00,132 - message_dispatcher - INFO -    -> id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:11:00,132 - message_dispatcher - INFO - 
+2026-03-13 00:11:00,132 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:11:00,132 - message_dispatcher - INFO - [SDR] INICIANDO DISPARO [agency=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5]
+2026-03-13 00:11:00,133 - message_dispatcher - INFO - [SDR] settings_id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:11:00,133 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:11:00,162 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:11:00,163 - PythonEngine - INFO - [DECISION] [VR Tony] Agora=00:11, Expediente=08:00-23:59, Janela=08:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:11:00,178 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.stalled_clients_distribution&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:11:00,179 - PythonEngine - INFO - [SUCCESS] [00:11:00] Job [Clientes Represados] FINALIZADO com sucesso
+2026-03-13 00:11:00,179 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:12:00 -03)" executed successfully
+2026-03-13 00:11:00,194 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:11:00,196 - message_dispatcher - INFO - [SDR] Barra -> 5% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:11:00,216 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:11:00,245 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&id=eq.06ba6337-7907-430d-81a4-8695a1e6f2e2 "HTTP/2 200 OK"
+2026-03-13 00:11:00,246 - message_dispatcher - INFO - [SDR] Config fresca OK. Metadata keys: ['prefix', 'end_time', 'pause_days', 'start_time', 'active_days', 'max_per_day', 'delay_maximo', 'delay_minimo', 'horario_final', 'dispatch_table', 'chat_table_name', 'horario_inicial', 'limite_disparos', 'cycle_start_date', 'uazapi_instances', 'randomize_pattern', 'mensagem_1_variants', 'mensagem_2_variants']
+2026-03-13 00:11:00,262 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:11:00,263 - PythonEngine - INFO - [OK] [VR Tony] Fora do expediente, 0 ativos.
+2026-03-13 00:11:00,295 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:11:00,296 - message_dispatcher - INFO - [SDR] Barra -> 8% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:11:00,296 - message_dispatcher - INFO - [SDR] ABORT: Fora do expediente (00:11, janela 07:00-19:00)
+2026-03-13 00:11:00,308 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.140884ab-4965-4cc7-9bf0-118d798c9046&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:11:00,309 - PythonEngine - INFO - [DECISION] [VITAX Lucas] Agora=00:11, Expediente=09:00-23:59, Janela=09:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:11:00,344 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:11:00,345 - PythonEngine - INFO - [SUCCESS] [00:11:00] Job [Disparos de Mensagem] FINALIZADO com sucesso
+2026-03-13 00:11:00,345 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:12:00 -03)" executed successfully
+2026-03-13 00:11:00,361 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:11:00,414 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:11:00,415 - PythonEngine - INFO - [OK] [VITAX Lucas] Fora do expediente, 0 ativos.
+2026-03-13 00:11:00,415 - PythonEngine - INFO - [BROKER] Ciclo OK: 2 agencias, 0 logouts
+2026-03-13 00:11:00,459 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:11:00,460 - PythonEngine - INFO - [SUCCESS] [00:11:00] Job [Gestão de Corretores] FINALIZADO com sucesso
+2026-03-13 00:11:00,460 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:12:00 -03)" executed successfully
+2026-03-13 00:11:50,489 - PythonEngine - INFO - [SYNC] #58 @ 00:11 -- Verificando intervalos e status...
+2026-03-13 00:11:50,588 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:11:50,644 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:11:50,693 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:11:50,743 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:11:50,794 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:11:50,849 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:12:00,001 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:13:00 -03)" (scheduled at 2026-03-13 00:12:00-03:00)
+2026-03-13 00:12:00,002 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:13:00 -03)" (scheduled at 2026-03-13 00:12:00-03:00)
+2026-03-13 00:12:00,002 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:13:00 -03)" (scheduled at 2026-03-13 00:12:00-03:00)
+2026-03-13 00:12:00,002 - PythonEngine - INFO - [TRIGGER] [00:12:00] Job [Gestão de Corretores] DISPARADO pelo scheduler
+2026-03-13 00:12:00,003 - PythonEngine - INFO - [TRIGGER] [00:12:00] Job [Clientes Represados] DISPARADO pelo scheduler
+2026-03-13 00:12:00,003 - PythonEngine - INFO - [TRIGGER] [00:12:00] Job [Disparos de Mensagem] DISPARADO pelo scheduler
+2026-03-13 00:12:00,006 - message_dispatcher - INFO - === DISPARO: Iniciando ciclo global ===
+2026-03-13 00:12:00,105 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:12:00,106 - PythonEngine - INFO - [BROKER] 2 agencias + 0 Global | 00:12
+2026-03-13 00:12:00,119 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch&automation_status=eq.RUNNING "HTTP/2 200 OK"
+2026-03-13 00:12:00,126 - message_dispatcher - INFO - [SDR] 1 configuracoes RUNNING encontradas
+2026-03-13 00:12:00,126 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/clientes_represados?select=%2A "HTTP/2 200 OK"
+2026-03-13 00:12:00,127 - message_dispatcher - INFO -    -> id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:12:00,127 - PythonEngine - INFO - [REDIST] ABORT: 0 leads represados encontrados. Nada a fazer.
+2026-03-13 00:12:00,128 - message_dispatcher - INFO - 
+2026-03-13 00:12:00,130 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:12:00,130 - message_dispatcher - INFO - [SDR] INICIANDO DISPARO [agency=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5]
+2026-03-13 00:12:00,130 - message_dispatcher - INFO - [SDR] settings_id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:12:00,130 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:12:00,155 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.140884ab-4965-4cc7-9bf0-118d798c9046&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:12:00,156 - PythonEngine - INFO - [DECISION] [VITAX Lucas] Agora=00:12, Expediente=09:00-23:59, Janela=09:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:12:00,174 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.stalled_clients_distribution&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:12:00,175 - PythonEngine - INFO - [SUCCESS] [00:12:00] Job [Clientes Represados] FINALIZADO com sucesso
+2026-03-13 00:12:00,175 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:13:00 -03)" executed successfully
+2026-03-13 00:12:00,198 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:12:00,200 - message_dispatcher - INFO - [SDR] Barra -> 5% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:12:00,215 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:12:00,248 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&id=eq.06ba6337-7907-430d-81a4-8695a1e6f2e2 "HTTP/2 200 OK"
+2026-03-13 00:12:00,249 - message_dispatcher - INFO - [SDR] Config fresca OK. Metadata keys: ['prefix', 'end_time', 'pause_days', 'start_time', 'active_days', 'max_per_day', 'delay_maximo', 'delay_minimo', 'horario_final', 'dispatch_table', 'chat_table_name', 'horario_inicial', 'limite_disparos', 'cycle_start_date', 'uazapi_instances', 'randomize_pattern', 'mensagem_1_variants', 'mensagem_2_variants']
+2026-03-13 00:12:00,267 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:12:00,268 - PythonEngine - INFO - [OK] [VITAX Lucas] Fora do expediente, 0 ativos.
+2026-03-13 00:12:00,314 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:12:00,315 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:12:00,315 - PythonEngine - INFO - [DECISION] [VR Tony] Agora=00:12, Expediente=08:00-23:59, Janela=08:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:12:00,318 - message_dispatcher - INFO - [SDR] Barra -> 8% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:12:00,319 - message_dispatcher - INFO - [SDR] ABORT: Fora do expediente (00:12, janela 07:00-19:00)
+2026-03-13 00:12:00,366 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:12:00,367 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:12:00,370 - PythonEngine - INFO - [SUCCESS] [00:12:00] Job [Disparos de Mensagem] FINALIZADO com sucesso
+2026-03-13 00:12:00,371 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:13:00 -03)" executed successfully
+2026-03-13 00:12:00,417 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:12:00,418 - PythonEngine - INFO - [OK] [VR Tony] Fora do expediente, 0 ativos.
+2026-03-13 00:12:00,419 - PythonEngine - INFO - [BROKER] Ciclo OK: 2 agencias, 0 logouts
+2026-03-13 00:12:00,460 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:12:00,461 - PythonEngine - INFO - [SUCCESS] [00:12:00] Job [Gestão de Corretores] FINALIZADO com sucesso
+2026-03-13 00:12:00,461 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:13:00 -03)" executed successfully
+2026-03-13 00:12:30,005 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/2', second='30'], next run at: 2026-03-13 00:14:30 -03)" (scheduled at 2026-03-13 00:12:30-03:00)
+2026-03-13 00:12:30,005 - PythonEngine - INFO - [TRIGGER] [00:12:30] Job [Watchdog Alertas de Erro] DISPARADO pelo scheduler
+2026-03-13 00:12:30,006 - error_alerts - INFO - [WATCHDOG] [00:12:30] Iniciando ciclo de verificação...
+2026-03-13 00:12:30,140 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.error_alerts&automation_status=eq.RUNNING&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:12:30,140 - error_alerts - INFO - [WATCHDOG] Checkpoint atual: 2026-03-05T02:59:00.264193+00:00
+2026-03-13 00:12:30,196 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/logs?select=%2A&level=eq.ERROR&created_at=gt.2026-03-05T02%3A59%3A00.264193%2B00%3A00&order=created_at.asc&limit=50 "HTTP/2 200 OK"
+2026-03-13 00:12:30,197 - error_alerts - INFO - [WATCHDOG] ABORT: 0 novos erros encontrados.
+2026-03-13 00:12:30,197 - PythonEngine - INFO - [SUCCESS] [00:12:30] Job [Watchdog Alertas de Erro] FINALIZADO com sucesso
+2026-03-13 00:12:30,197 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/2', second='30'], next run at: 2026-03-13 00:14:30 -03)" executed successfully
+2026-03-13 00:12:50,850 - PythonEngine - INFO - [SYNC] #59 @ 00:12 -- Verificando intervalos e status...
+2026-03-13 00:12:51,145 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:12:51,289 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:12:51,388 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:12:51,511 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:12:51,605 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:12:51,727 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:13:00,005 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:14:00 -03)" (scheduled at 2026-03-13 00:13:00-03:00)
+2026-03-13 00:13:00,005 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:14:00 -03)" (scheduled at 2026-03-13 00:13:00-03:00)
+2026-03-13 00:13:00,005 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:14:00 -03)" (scheduled at 2026-03-13 00:13:00-03:00)
+2026-03-13 00:13:00,006 - PythonEngine - INFO - [TRIGGER] [00:13:00] Job [Gestão de Corretores] DISPARADO pelo scheduler
+2026-03-13 00:13:00,006 - PythonEngine - INFO - [TRIGGER] [00:13:00] Job [Disparos de Mensagem] DISPARADO pelo scheduler
+2026-03-13 00:13:00,007 - PythonEngine - INFO - [TRIGGER] [00:13:00] Job [Clientes Represados] DISPARADO pelo scheduler
+2026-03-13 00:13:00,009 - message_dispatcher - INFO - === DISPARO: Iniciando ciclo global ===
+2026-03-13 00:13:00,100 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:13:00,102 - PythonEngine - INFO - [BROKER] 2 agencias + 0 Global | 00:13
+2026-03-13 00:13:00,110 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch&automation_status=eq.RUNNING "HTTP/2 200 OK"
+2026-03-13 00:13:00,111 - message_dispatcher - INFO - [SDR] 1 configuracoes RUNNING encontradas
+2026-03-13 00:13:00,112 - message_dispatcher - INFO -    -> id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:13:00,112 - message_dispatcher - INFO - 
+2026-03-13 00:13:00,112 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:13:00,113 - message_dispatcher - INFO - [SDR] INICIANDO DISPARO [agency=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5]
+2026-03-13 00:13:00,113 - message_dispatcher - INFO - [SDR] settings_id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:13:00,113 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:13:00,116 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/clientes_represados?select=%2A "HTTP/2 200 OK"
+2026-03-13 00:13:00,117 - PythonEngine - INFO - [REDIST] ABORT: 0 leads represados encontrados. Nada a fazer.
+2026-03-13 00:13:00,148 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.140884ab-4965-4cc7-9bf0-118d798c9046&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:13:00,149 - PythonEngine - INFO - [DECISION] [VITAX Lucas] Agora=00:13, Expediente=09:00-23:59, Janela=09:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:13:00,166 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.stalled_clients_distribution&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:13:00,167 - PythonEngine - INFO - [SUCCESS] [00:13:00] Job [Clientes Represados] FINALIZADO com sucesso
+2026-03-13 00:13:00,168 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:13:00,168 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:14:00 -03)" executed successfully
+2026-03-13 00:13:00,169 - message_dispatcher - INFO - [SDR] Barra -> 5% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:13:00,193 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:13:00,214 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&id=eq.06ba6337-7907-430d-81a4-8695a1e6f2e2 "HTTP/2 200 OK"
+2026-03-13 00:13:00,215 - message_dispatcher - INFO - [SDR] Config fresca OK. Metadata keys: ['prefix', 'end_time', 'pause_days', 'start_time', 'active_days', 'max_per_day', 'delay_maximo', 'delay_minimo', 'horario_final', 'dispatch_table', 'chat_table_name', 'horario_inicial', 'limite_disparos', 'cycle_start_date', 'uazapi_instances', 'randomize_pattern', 'mensagem_1_variants', 'mensagem_2_variants']
+2026-03-13 00:13:00,243 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:13:00,244 - PythonEngine - INFO - [OK] [VITAX Lucas] Fora do expediente, 0 ativos.
+2026-03-13 00:13:00,259 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:13:00,261 - message_dispatcher - INFO - [SDR] Barra -> 8% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:13:00,261 - message_dispatcher - INFO - [SDR] ABORT: Fora do expediente (00:13, janela 07:00-19:00)
+2026-03-13 00:13:00,286 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:13:00,287 - PythonEngine - INFO - [DECISION] [VR Tony] Agora=00:13, Expediente=08:00-23:59, Janela=08:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:13:00,305 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:13:00,306 - PythonEngine - INFO - [SUCCESS] [00:13:00] Job [Disparos de Mensagem] FINALIZADO com sucesso
+2026-03-13 00:13:00,307 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:14:00 -03)" executed successfully
+2026-03-13 00:13:00,330 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:13:00,371 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:13:00,372 - PythonEngine - INFO - [OK] [VR Tony] Fora do expediente, 0 ativos.
+2026-03-13 00:13:00,373 - PythonEngine - INFO - [BROKER] Ciclo OK: 2 agencias, 0 logouts
+2026-03-13 00:13:00,419 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:13:00,420 - PythonEngine - INFO - [SUCCESS] [00:13:00] Job [Gestão de Corretores] FINALIZADO com sucesso
+2026-03-13 00:13:00,420 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:14:00 -03)" executed successfully
+2026-03-13 00:13:51,728 - PythonEngine - INFO - [SYNC] #60 @ 00:13 -- Verificando intervalos e status...
+2026-03-13 00:13:52,432 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:13:52,708 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:13:52,877 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:13:53,129 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:13:53,394 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:13:53,815 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:14:00,003 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:15:00 -03)" (scheduled at 2026-03-13 00:14:00-03:00)
+2026-03-13 00:14:00,003 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:15:00 -03)" (scheduled at 2026-03-13 00:14:00-03:00)
+2026-03-13 00:14:00,003 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:15:00 -03)" (scheduled at 2026-03-13 00:14:00-03:00)
+2026-03-13 00:14:00,004 - PythonEngine - INFO - [TRIGGER] [00:14:00] Job [Gestão de Corretores] DISPARADO pelo scheduler
+2026-03-13 00:14:00,005 - PythonEngine - INFO - [TRIGGER] [00:14:00] Job [Disparos de Mensagem] DISPARADO pelo scheduler
+2026-03-13 00:14:00,005 - PythonEngine - INFO - [TRIGGER] [00:14:00] Job [Clientes Represados] DISPARADO pelo scheduler
+2026-03-13 00:14:00,007 - message_dispatcher - INFO - === DISPARO: Iniciando ciclo global ===
+2026-03-13 00:14:01,391 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:14:01,392 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch&automation_status=eq.RUNNING "HTTP/2 200 OK"
+2026-03-13 00:14:01,393 - PythonEngine - INFO - [BROKER] 2 agencias + 0 Global | 00:14
+2026-03-13 00:14:01,394 - message_dispatcher - INFO - [SDR] 1 configuracoes RUNNING encontradas
+2026-03-13 00:14:01,397 - message_dispatcher - INFO -    -> id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:14:01,397 - message_dispatcher - INFO - 
+2026-03-13 00:14:01,397 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:14:01,397 - message_dispatcher - INFO - [SDR] INICIANDO DISPARO [agency=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5]
+2026-03-13 00:14:01,398 - message_dispatcher - INFO - [SDR] settings_id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:14:01,398 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:14:01,408 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/clientes_represados?select=%2A "HTTP/2 200 OK"
+2026-03-13 00:14:01,644 - PythonEngine - INFO - [REDIST] ABORT: 0 leads represados encontrados. Nada a fazer.
+2026-03-13 00:14:01,644 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.140884ab-4965-4cc7-9bf0-118d798c9046&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:14:01,647 - PythonEngine - INFO - [DECISION] [VITAX Lucas] Agora=00:14, Expediente=09:00-23:59, Janela=09:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:14:01,798 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:14:01,799 - message_dispatcher - INFO - [SDR] Barra -> 5% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:14:02,007 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:14:02,023 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.stalled_clients_distribution&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:14:02,024 - PythonEngine - INFO - [SUCCESS] [00:14:00] Job [Clientes Represados] FINALIZADO com sucesso
+2026-03-13 00:14:02,024 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:15:00 -03)" executed successfully
+2026-03-13 00:14:02,374 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&id=eq.06ba6337-7907-430d-81a4-8695a1e6f2e2 "HTTP/2 200 OK"
+2026-03-13 00:14:02,375 - message_dispatcher - INFO - [SDR] Config fresca OK. Metadata keys: ['prefix', 'end_time', 'pause_days', 'start_time', 'active_days', 'max_per_day', 'delay_maximo', 'delay_minimo', 'horario_final', 'dispatch_table', 'chat_table_name', 'horario_inicial', 'limite_disparos', 'cycle_start_date', 'uazapi_instances', 'randomize_pattern', 'mensagem_1_variants', 'mensagem_2_variants']
+2026-03-13 00:14:02,393 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:14:02,394 - PythonEngine - INFO - [OK] [VITAX Lucas] Fora do expediente, 0 ativos.
+2026-03-13 00:14:02,515 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:14:02,516 - PythonEngine - INFO - [DECISION] [VR Tony] Agora=00:14, Expediente=08:00-23:59, Janela=08:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:14:02,534 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:14:02,535 - message_dispatcher - INFO - [SDR] Barra -> 8% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:14:02,535 - message_dispatcher - INFO - [SDR] ABORT: Fora do expediente (00:14, janela 07:00-19:00)
+2026-03-13 00:14:02,573 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:14:02,585 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:14:02,586 - PythonEngine - INFO - [SUCCESS] [00:14:00] Job [Disparos de Mensagem] FINALIZADO com sucesso
+2026-03-13 00:14:02,586 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:15:00 -03)" executed successfully
+2026-03-13 00:14:02,618 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:14:02,620 - PythonEngine - INFO - [OK] [VR Tony] Fora do expediente, 0 ativos.
+2026-03-13 00:14:02,620 - PythonEngine - INFO - [BROKER] Ciclo OK: 2 agencias, 0 logouts
+2026-03-13 00:14:02,672 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:14:02,673 - PythonEngine - INFO - [SUCCESS] [00:14:00] Job [Gestão de Corretores] FINALIZADO com sucesso
+2026-03-13 00:14:02,673 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:15:00 -03)" executed successfully
+2026-03-13 00:14:30,010 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/2', second='30'], next run at: 2026-03-13 00:16:30 -03)" (scheduled at 2026-03-13 00:14:30-03:00)
+2026-03-13 00:14:30,011 - PythonEngine - INFO - [TRIGGER] [00:14:30] Job [Watchdog Alertas de Erro] DISPARADO pelo scheduler
+2026-03-13 00:14:30,011 - error_alerts - INFO - [WATCHDOG] [00:14:30] Iniciando ciclo de verificação...
+2026-03-13 00:14:30,129 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.error_alerts&automation_status=eq.RUNNING&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:14:30,130 - error_alerts - INFO - [WATCHDOG] Checkpoint atual: 2026-03-05T02:59:00.264193+00:00
+2026-03-13 00:14:30,185 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/logs?select=%2A&level=eq.ERROR&created_at=gt.2026-03-05T02%3A59%3A00.264193%2B00%3A00&order=created_at.asc&limit=50 "HTTP/2 200 OK"
+2026-03-13 00:14:30,186 - error_alerts - INFO - [WATCHDOG] ABORT: 0 novos erros encontrados.
+2026-03-13 00:14:30,186 - PythonEngine - INFO - [SUCCESS] [00:14:30] Job [Watchdog Alertas de Erro] FINALIZADO com sucesso
+2026-03-13 00:14:30,187 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/2', second='30'], next run at: 2026-03-13 00:16:30 -03)" executed successfully
+2026-03-13 00:14:53,819 - PythonEngine - INFO - [SYNC] #61 @ 00:14 -- Verificando intervalos e status...
+2026-03-13 00:14:54,067 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:14:54,162 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:14:54,258 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:14:54,381 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:14:54,458 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:14:54,533 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:15:00,003 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:16:00 -03)" (scheduled at 2026-03-13 00:15:00-03:00)
+2026-03-13 00:15:00,003 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:16:00 -03)" (scheduled at 2026-03-13 00:15:00-03:00)
+2026-03-13 00:15:00,003 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:16:00 -03)" (scheduled at 2026-03-13 00:15:00-03:00)
+2026-03-13 00:15:00,006 - PythonEngine - INFO - [TRIGGER] [00:15:00] Job [Gestão de Corretores] DISPARADO pelo scheduler
+2026-03-13 00:15:00,008 - PythonEngine - INFO - [TRIGGER] [00:15:00] Job [Disparos de Mensagem] DISPARADO pelo scheduler
+2026-03-13 00:15:00,011 - PythonEngine - INFO - [TRIGGER] [00:15:00] Job [Clientes Represados] DISPARADO pelo scheduler
+2026-03-13 00:15:00,014 - message_dispatcher - INFO - === DISPARO: Iniciando ciclo global ===
+2026-03-13 00:15:01,134 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:15:01,136 - PythonEngine - INFO - [BROKER] 2 agencias + 0 Global | 00:15
+2026-03-13 00:15:01,153 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/clientes_represados?select=%2A "HTTP/2 200 OK"
+2026-03-13 00:15:01,153 - PythonEngine - INFO - [REDIST] ABORT: 0 leads represados encontrados. Nada a fazer.
+2026-03-13 00:15:01,156 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch&automation_status=eq.RUNNING "HTTP/2 200 OK"
+2026-03-13 00:15:01,157 - message_dispatcher - INFO - [SDR] 1 configuracoes RUNNING encontradas
+2026-03-13 00:15:01,157 - message_dispatcher - INFO -    -> id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:15:01,157 - message_dispatcher - INFO - 
+2026-03-13 00:15:01,158 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:15:01,158 - message_dispatcher - INFO - [SDR] INICIANDO DISPARO [agency=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5]
+2026-03-13 00:15:01,158 - message_dispatcher - INFO - [SDR] settings_id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:15:01,158 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:15:01,185 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.140884ab-4965-4cc7-9bf0-118d798c9046&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:15:01,186 - PythonEngine - INFO - [DECISION] [VITAX Lucas] Agora=00:15, Expediente=09:00-23:59, Janela=09:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:15:01,203 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.stalled_clients_distribution&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:15:01,204 - PythonEngine - INFO - [SUCCESS] [00:15:00] Job [Clientes Represados] FINALIZADO com sucesso
+2026-03-13 00:15:01,204 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:16:00 -03)" executed successfully
+2026-03-13 00:15:01,210 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:15:01,212 - message_dispatcher - INFO - [SDR] Barra -> 5% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:15:01,236 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:15:01,256 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&id=eq.06ba6337-7907-430d-81a4-8695a1e6f2e2 "HTTP/2 200 OK"
+2026-03-13 00:15:01,256 - message_dispatcher - INFO - [SDR] Config fresca OK. Metadata keys: ['prefix', 'end_time', 'pause_days', 'start_time', 'active_days', 'max_per_day', 'delay_maximo', 'delay_minimo', 'horario_final', 'dispatch_table', 'chat_table_name', 'horario_inicial', 'limite_disparos', 'cycle_start_date', 'uazapi_instances', 'randomize_pattern', 'mensagem_1_variants', 'mensagem_2_variants']
+2026-03-13 00:15:01,287 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:15:01,288 - PythonEngine - INFO - [OK] [VITAX Lucas] Fora do expediente, 0 ativos.
+2026-03-13 00:15:01,303 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:15:01,304 - message_dispatcher - INFO - [SDR] Barra -> 8% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:15:01,304 - message_dispatcher - INFO - [SDR] ABORT: Fora do expediente (00:15, janela 07:00-19:00)
+2026-03-13 00:15:01,336 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:15:01,337 - PythonEngine - INFO - [DECISION] [VR Tony] Agora=00:15, Expediente=08:00-23:59, Janela=08:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:15:01,353 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:15:01,355 - PythonEngine - INFO - [SUCCESS] [00:15:00] Job [Disparos de Mensagem] FINALIZADO com sucesso
+2026-03-13 00:15:01,355 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:16:00 -03)" executed successfully
+2026-03-13 00:15:01,381 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:15:01,428 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:15:01,429 - PythonEngine - INFO - [OK] [VR Tony] Fora do expediente, 0 ativos.
+2026-03-13 00:15:01,430 - PythonEngine - INFO - [BROKER] Ciclo OK: 2 agencias, 0 logouts
+2026-03-13 00:15:01,473 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:15:01,474 - PythonEngine - INFO - [SUCCESS] [00:15:00] Job [Gestão de Corretores] FINALIZADO com sucesso
+2026-03-13 00:15:01,474 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:16:00 -03)" executed successfully
+2026-03-13 00:15:54,534 - PythonEngine - INFO - [SYNC] #62 @ 00:15 -- Verificando intervalos e status...
+2026-03-13 00:15:54,958 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:15:55,037 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:15:55,109 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:15:55,181 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.message_dispatch "HTTP/2 200 OK"
+2026-03-13 00:15:55,249 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:15:55,322 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=automation_status%2Cagency_id&name=eq.stalled_clients_distribution "HTTP/2 200 OK"
+2026-03-13 00:16:00,006 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:17:00 -03)" (scheduled at 2026-03-13 00:16:00-03:00)
+2026-03-13 00:16:00,006 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:17:00 -03)" (scheduled at 2026-03-13 00:16:00-03:00)
+2026-03-13 00:16:00,006 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:17:00 -03)" (scheduled at 2026-03-13 00:16:00-03:00)
+2026-03-13 00:16:00,007 - PythonEngine - INFO - [TRIGGER] [00:16:00] Job [Gestão de Corretores] DISPARADO pelo scheduler
+2026-03-13 00:16:00,007 - PythonEngine - INFO - [TRIGGER] [00:16:00] Job [Disparos de Mensagem] DISPARADO pelo scheduler
+2026-03-13 00:16:00,008 - PythonEngine - INFO - [TRIGGER] [00:16:00] Job [Clientes Represados] DISPARADO pelo scheduler
+2026-03-13 00:16:00,010 - message_dispatcher - INFO - === DISPARO: Iniciando ciclo global ===
+2026-03-13 00:16:00,050 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.broker_management "HTTP/2 200 OK"
+2026-03-13 00:16:00,052 - PythonEngine - INFO - [BROKER] 2 agencias + 0 Global | 00:16
+2026-03-13 00:16:00,064 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/clientes_represados?select=%2A "HTTP/2 200 OK"
+2026-03-13 00:16:00,065 - PythonEngine - INFO - [REDIST] ABORT: 0 leads represados encontrados. Nada a fazer.
+2026-03-13 00:16:00,065 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.message_dispatch&automation_status=eq.RUNNING "HTTP/2 200 OK"
+2026-03-13 00:16:00,068 - message_dispatcher - INFO - [SDR] 1 configuracoes RUNNING encontradas
+2026-03-13 00:16:00,068 - message_dispatcher - INFO -    -> id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:16:00,068 - message_dispatcher - INFO - 
+2026-03-13 00:16:00,068 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:16:00,069 - message_dispatcher - INFO - [SDR] INICIANDO DISPARO [agency=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5]
+2026-03-13 00:16:00,069 - message_dispatcher - INFO - [SDR] settings_id=06ba6337-7907-430d-81a4-8695a1e6f2e2, agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5
+2026-03-13 00:16:00,069 - message_dispatcher - INFO - ============================================================
+2026-03-13 00:16:00,095 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.140884ab-4965-4cc7-9bf0-118d798c9046&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:16:00,095 - PythonEngine - INFO - [DECISION] [VITAX Lucas] Agora=00:16, Expediente=09:00-23:59, Janela=09:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:16:00,112 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.stalled_clients_distribution&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:16:00,113 - PythonEngine - INFO - [SUCCESS] [00:16:00] Job [Clientes Represados] FINALIZADO com sucesso
+2026-03-13 00:16:00,113 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:17:00 -03)" executed successfully
+2026-03-13 00:16:00,117 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:16:00,118 - message_dispatcher - INFO - [SDR] Barra -> 5% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:16:00,141 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:16:00,165 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&id=eq.06ba6337-7907-430d-81a4-8695a1e6f2e2 "HTTP/2 200 OK"
+2026-03-13 00:16:00,166 - message_dispatcher - INFO - [SDR] Config fresca OK. Metadata keys: ['prefix', 'end_time', 'pause_days', 'start_time', 'active_days', 'max_per_day', 'delay_maximo', 'delay_minimo', 'horario_final', 'dispatch_table', 'chat_table_name', 'horario_inicial', 'limite_disparos', 'cycle_start_date', 'uazapi_instances', 'randomize_pattern', 'mensagem_1_variants', 'mensagem_2_variants']
+2026-03-13 00:16:00,188 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.140884ab-4965-4cc7-9bf0-118d798c9046 "HTTP/2 200 OK"
+2026-03-13 00:16:00,216 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:16:00,216 - PythonEngine - INFO - [OK] [VITAX Lucas] Fora do expediente, 0 ativos.
+2026-03-13 00:16:00,219 - message_dispatcher - INFO - [SDR] Barra -> 8% (agency_id=b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5)
+2026-03-13 00:16:00,220 - message_dispatcher - INFO - [SDR] ABORT: Fora do expediente (00:16, janela 07:00-19:00)
+2026-03-13 00:16:00,265 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=name&id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:16:00,266 - PythonEngine - INFO - [DECISION] [VR Tony] Agora=00:16, Expediente=08:00-23:59, Janela=08:00-23:59 (fonte=access_schedules(agencia)), Antecipacao=5min
+2026-03-13 00:16:00,268 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.message_dispatch&agency_id=eq.b94bf633-a3f7-4f68-bdcd-c9c4ac4977f5 "HTTP/2 200 OK"
+2026-03-13 00:16:00,270 - PythonEngine - INFO - [SUCCESS] [00:16:00] Job [Disparos de Mensagem] FINALIZADO com sucesso
+2026-03-13 00:16:00,270 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:17:00 -03)" executed successfully
+2026-03-13 00:16:00,310 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:16:00,363 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/profiles?select=id%2Cname%2Cactive%2Ccheckin&role=eq.broker&agency_id=eq.09fd9786-0c5a-4509-bf5f-6f5e7cba6775 "HTTP/2 200 OK"
+2026-03-13 00:16:00,364 - PythonEngine - INFO - [OK] [VR Tony] Fora do expediente, 0 ativos.
+2026-03-13 00:16:00,364 - PythonEngine - INFO - [BROKER] Ciclo OK: 2 agencias, 0 logouts
+2026-03-13 00:16:00,407 - httpx - INFO - HTTP Request: PATCH https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?name=eq.broker_management&agency_id=is.null "HTTP/2 200 OK"
+2026-03-13 00:16:00,408 - PythonEngine - INFO - [SUCCESS] [00:16:00] Job [Gestão de Corretores] FINALIZADO com sucesso
+2026-03-13 00:16:00,409 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/1', second='0'], next run at: 2026-03-13 00:17:00 -03)" executed successfully
+2026-03-13 00:16:30,011 - apscheduler.executors.default - INFO - Running job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/2', second='30'], next run at: 2026-03-13 00:18:30 -03)" (scheduled at 2026-03-13 00:16:30-03:00)
+2026-03-13 00:16:30,012 - PythonEngine - INFO - [TRIGGER] [00:16:30] Job [Watchdog Alertas de Erro] DISPARADO pelo scheduler
+2026-03-13 00:16:30,012 - error_alerts - INFO - [WATCHDOG] [00:16:30] Iniciando ciclo de verificação...
+2026-03-13 00:16:30,286 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/automation_settings?select=%2A&name=eq.error_alerts&automation_status=eq.RUNNING&limit=1 "HTTP/2 200 OK"
+2026-03-13 00:16:30,287 - error_alerts - INFO - [WATCHDOG] Checkpoint atual: 2026-03-05T02:59:00.264193+00:00
+2026-03-13 00:16:30,498 - httpx - INFO - HTTP Request: GET https://tzzaqasrgiygcnwvwqal.supabase.co/rest/v1/logs?select=%2A&level=eq.ERROR&created_at=gt.2026-03-05T02%3A59%3A00.264193%2B00%3A00&order=created_at.asc&limit=50 "HTTP/2 200 OK"
+2026-03-13 00:16:30,500 - error_alerts - INFO - [WATCHDOG] ABORT: 0 novos erros encontrados.
+2026-03-13 00:16:30,500 - PythonEngine - INFO - [SUCCESS] [00:16:30] Job [Watchdog Alertas de Erro] FINALIZADO com sucesso
+2026-03-13 00:16:30,500 - apscheduler.executors.default - INFO - Job "safe_job_wrapper.<locals>.wrapped (trigger: cron[minute='*/2', second='30'], next run at: 2026-03-13 00:18:30 -03)" executed successfully

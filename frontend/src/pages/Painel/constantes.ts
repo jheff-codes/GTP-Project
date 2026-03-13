@@ -1,11 +1,12 @@
-// Status order for funnel (cumulative counting)
+// Status order for funnel (cumulative counting) - EXCLUINDO FOLLOW-UP
 export const FUNNEL_STAGES_ORDER = [
-    'qualificando', 'qualificado', 'agendando', 'agendado', 'ligação', 'visita', 'followup', 'proposta', 'venda'
+    'qualificando', 'qualificado', 'agendando', 'agendado', 'ligação', 'visita', 'proposta', 'venda'
 ];
 
 // Stages that are 'qualifying' or beyond (index >= 2)
 export const QUALIFYING_PLUS_STAGES = FUNNEL_STAGES_ORDER.slice(2);
 
+// FUNNEL STAGES - SEM FOLLOW-UP (isolado pois são clientes manuais dos corretores)
 export const FUNNEL_STAGES = [
     { key: 'qualificando', label: 'Qualificando', color: '#8b5cf6' },
     { key: 'qualificado', label: 'Qualificado', color: '#a855f7' },
@@ -13,7 +14,6 @@ export const FUNNEL_STAGES = [
     { key: 'agendado', label: 'Agendado', color: '#cc14ef' },
     { key: 'ligação', label: 'Ligação', color: '#22d3ee' },
     { key: 'visita', label: 'Visita', color: '#f59e0b' },
-    { key: 'followup', label: 'Follow-up', color: '#10b981' },
     { key: 'proposta', label: 'Proposta', color: '#14b8a6' },
     { key: 'venda', label: 'Venda', color: '#059669' },
 ];
@@ -41,7 +41,7 @@ export const YEARS = Array.from({ length: 5 }, (_, i) => ({
     label: String(currentYear - i),
 }));
 
-// Allowed status for "Últimas Conversas"
+// Allowed status for "Últimas Conversas" - EXCLUINDO FOLLOW-UP
 export const ALLOWED_CONVERSATION_STATUS = [
-    'qualificando', 'qualificado', 'agendando', 'agendado', 'ligação', 'visita', 'followup', 'proposta', 'venda'
+    'qualificando', 'qualificado', 'agendando', 'agendado', 'ligação', 'visita', 'proposta', 'venda'
 ];

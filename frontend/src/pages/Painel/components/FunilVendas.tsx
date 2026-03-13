@@ -13,20 +13,45 @@ export const FunilVendas = ({ filteredClients }: FunilVendasProps) => {
 
     const getCumulativeCountFiltered = (stageIndex: number) => {
         return filteredClients.filter(c => {
+            // EXCLUIR clientes em FOLLOW-UP (eles são manuais dos corretores)
+            if (c.status?.toLowerCase() === 'followup') return false;
+
             const clientStageIndex = getStageIndex(c.status);
             return clientStageIndex !== -1 && clientStageIndex >= stageIndex;
         }).length || 0;
     };
 
     const getExactCountFiltered = (status: string) => {
+        // EXCLUIR clientes em FOLLOW-UP da contagem exata também
         if (status === 'disparo') {
-            return filteredClients?.filter(c => !c.status || c.status === 'disparo' || c.status === '').length || 0;
+            return filteredClients?.filter(c =>
+                (!c.status || c.status === 'disparo' || c.status === '') &&
+                c.status?.toLowerCase() !== 'followup'
+            ).length || 0;
         }
-        return filteredClients?.filter(c => c.status?.toLowerCase() === status.toLowerCase()).length || 0;
+        return filteredClients?.filter(c =>
+            c.status?.toLowerCase() === status.toLowerCase() &&
+            c.status?.toLowerCase() !== 'followup'
+        ).length || 0;
     };
 
+    // Contagem de clientes em FOLLOW-UP (separada do funil)
+    const followupCount = filteredClients?.filter(c =>
+        c.status?.toLowerCase() === 'followup'
+    ).length || 0;
+
     return (
-        <div className="gtp-card lg:col-span-2 h-full flex flex-col overflow-hidden">
+        <div className="gtp-card lg:col-span-2 h-full flex flex-col overflow-hidden relative">
+            {/* Follow-up Box - positioned in bottom-right corner */}
+            <div className="absolute bottom-4 right-4 z-30">
+                <div className="bg-green-500 text-white px-3 py-2 rounded-lg shadow-lg border-2 border-white/20">
+                    <div className="flex flex-col items-center text-center">
+                        <span className="text-xs font-bold uppercase tracking-wider">Follow-up</span>
+                        <span className="text-lg font-black">{followupCount}</span>
+                    </div>
+                </div>
+            </div>
+
             <div className="flex items-center justify-between mb-8 flex-shrink-0">
                 <span className="micro-label flex items-center gap-2">
                     <Filter className="w-3.5 h-3.5 text-primary" />
@@ -80,6 +105,9 @@ export const FunilVendas = ({ filteredClients }: FunilVendasProps) => {
             <div className="mt-4 pt-4 border-t border-border">
                 <p className="text-[10px] text-muted-foreground text-center">
                     * Contagem cumulativa: cada etapa inclui clientes nela ou em etapas posteriores
+                </p>
+                <p className="text-[10px] text-muted-foreground text-center mt-1">
+                    * Follow-up: clientes manuais dos corretores (não contam no funil)
                 </p>
             </div>
         </div>
